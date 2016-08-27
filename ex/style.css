@@ -1,0 +1,22 @@
+/* iplaysoft.com */
+#sidebar>#sidebar_scroll,
+
+/* global */
+[class|="ad"], [class|="ads"], 
+[class^="ad_"], [class^="ads_"], 
+[class$="-ad"], [class$="-ads"], 
+[class$="_ad"], [class$="_ads"], 
+[class*="-ad "], [class*="-ads "], 
+[class*="_ad "], [class*="_ads "], 
+
+#ad { display: none !important; }
+
+* {
+	transition-duration: 0s !important;
+	-webkit-user-select: text !important;
+}
+
+
+/* douyu.com */
+#left-big-scroll>.viewport { overflow-y: auto; }
+#left-big-scroll>.viewport::-webkit-scrollbar { width: 0px; }

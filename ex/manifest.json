@@ -1,0 +1,29 @@
+{
+"manifest_version": 2,
+"name": "ex",
+"version": "16.08.26",
+"permissions": ["<all_urls>", "webRequest", "webRequestBlocking"],
+"options_ui": {
+	"page": "options.html",
+	"chrome_style": true
+},
+"background": {
+	"scripts": ["list.js", "blocker.js", "scroll-act.js"]
+},
+"content_scripts": [
+	{
+	"matches": ["http://*/*", "https://*/*"],
+	"js": ["list.js", "hidden.js"],
+	"run_at": "document_end"
+	}, {
+	"matches": ["http://*/*", "https://*/*"],
+	"css": ["style.css"],
+	"js": ["scroll.js", "login.js"],
+	"all_frames": true
+	}, {
+	"matches": ["http://tieba.baidu.com/*"],
+	"js": ["/js/tieba.baidu.js"]
+	}
+],
+"update_url": "https://github.com/enemygh/ex/raw/master/update.xml"
+}
