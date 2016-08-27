@@ -65,7 +65,7 @@ function act(cx, cy) {
 			window.scroll(0, 0);
 			break;
 		case x > window.innerWidth - 30 && dx / dy > 3:
-			alert("nextpage.js");
+			nextpage();
 			break;
 		case x < 30 && dx / dy > 3:
 			chrome.extension.sendRequest(0); // close
@@ -74,4 +74,10 @@ function act(cx, cy) {
 			chrome.extension.sendRequest(x > cx ? 1 : 2); // 2left | 2right
 			break;
 	}
+}
+
+function nextpage() {
+	var a = document.querySelector('a.next, a.nxt')
+			|| Array.from(document.getElementsByTagName('A')).find(a =>a.title === "下一页" || a.text === "下一页" ? true : false);
+		a.click();
 }
