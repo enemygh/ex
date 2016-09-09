@@ -8,6 +8,7 @@
 [class$="_ad"], [class$="_ads"], 
 [class*="-ad "], [class*="-ads "], 
 [class*="_ad "], [class*="_ads "], 
+[class*="-ad-"],
 
 #ad { display: none !important; }
 
