@@ -77,7 +77,7 @@ function act(cx, cy) {
 }
 
 function nextpage() {
-	var a = document.querySelector('a.next, a.nxt')
+	var a = document.querySelector('#next_chapter, a.next, a.nxt')
 			|| Array.from(document.getElementsByTagName('A')).find(a =>a.title === "下一页" || a.text === "下一页" ? true : false);
 		a.click();
 }
