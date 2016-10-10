@@ -17,7 +17,7 @@ document.addEventListener("dblclick", function() {
 		if(a.type === "password") {
 			a.value = pw(a.value);
 		}else {
-			a.value = "enemy163@163.com";
+			a.value = "your@mail.com";
 		}
 	}
 });
