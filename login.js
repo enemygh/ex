@@ -21,20 +21,3 @@ document.addEventListener("dblclick", function() {
 		}
 	}
 });
-
-/*
-var a = location.hostname.replace(/\.com\.cn$/,'.').split('.'),
-	b = parseInt(a[a.length - 2], 36) * parseInt('enemy2', 36) + '',
-	c = b.split(''),
-	str = '';
-	
-	for(var i in c){
-		var a = b.slice(i, c[i] + i) * 1;
-		if(i%2){
-			str += a.toString(36).toUpperCase();
-		}else{
-			str += a.toString(36);
-		}
-	}
-	str = str.slice(0,14);
-// */
