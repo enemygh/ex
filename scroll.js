@@ -15,7 +15,7 @@ for(let a of arr) {
 	}
 }
 
-var x, y, sx, sy, d, m;
+var x, y, sx, sy, d, m, l, r;
 window.onmousedown = function() {
 	if(event.which === 3) {
 		x = event.clientX;
@@ -29,6 +29,10 @@ window.onmousedown = function() {
 		}
 		d = true;
 	}
+	var s = document.scrollingElement;
+	l = !s.scrollLeft;
+	r = s.scrollWidth === window.innerWidth ||
+		s.scrollWidth - s.scrollLeft === window.innerWidth - 17;
 }
 
 window.onmousemove = function() {
@@ -70,14 +74,17 @@ function act(cx, cy) {
 		case x < 30 && dx / dy > 3:
 			chrome.extension.sendRequest(0); // close
 			break;
-		case dx > 60 && dx / dy > 3:
-			chrome.extension.sendRequest(x > cx ? 1 : 2); // 2left | 2right
+		case (l || r) && dx > 60 && dx / dy > 3:
+			if(l && x < cx)
+				chrome.extension.sendRequest(1); // 2left
+			if(r && x > cx)
+				chrome.extension.sendRequest(2); // 2right
 			break;
 	}
 }
 
 function nextpage() {
 	var a = document.querySelector('#next_chapter, a.next, a.nxt')
-			|| Array.from(document.getElementsByTagName('A')).find(a =>a.title === "下一页" || a.text === "下一页" ? true : false);
+			|| Array.from(document.getElementsByTagName('A')).find(a => a.title === "下一页" || a.text === "下一页" ? true : false);
 		a.click();
 }
