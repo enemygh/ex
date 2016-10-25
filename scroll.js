@@ -66,7 +66,7 @@ function act(cx, cy) {
 		dy = Math.abs(cy - y);
 	switch(true) {
 		case y < 30 && dy / dx > 3:
-			window.scroll(0, 0);
+			window.scroll(0, 0); // top
 			break;
 		case x > window.innerWidth - 30 && dx / dy > 3:
 			nextpage();
@@ -74,11 +74,11 @@ function act(cx, cy) {
 		case x < 30 && dx / dy > 3:
 			chrome.extension.sendRequest(0); // close
 			break;
-		case (l || r) && dx > 60 && dx / dy > 3:
-			if(l && x < cx)
-				chrome.extension.sendRequest(1); // 2left
-			if(r && x > cx)
-				chrome.extension.sendRequest(2); // 2right
+		case l && x < cx && dx > 60 && dx / dy > 3:
+			chrome.extension.sendRequest(1); // 2left
+			break;
+		case r && x > cx && dx > 60 && dx / dy > 3:
+			chrome.extension.sendRequest(2); // 2right
 			break;
 	}
 }
