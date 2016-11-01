@@ -13,5 +13,6 @@ var black = [
 	'cpro.baidustatic.com',
 	'p.tanx.com',
 	'ptengine.cn',
-	'pagead2.googlesyndication.com'
+	'pagead2.googlesyndication.com',
+	'google-analytics.com'
 ];
